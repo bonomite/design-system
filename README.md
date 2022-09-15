@@ -40,5 +40,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### build a theme example
 ```
-sass --style=compressed src/assets/themes/drcantamessa/vela-purple-dr-cantamessa/theme.scss src/assets/themes/drcantamessa/vela-purple-dr-cantamessa/vela-purple-dr-cantamessa.min.css
+sass --style=compressed src/assets/themes/drcantamessa/viva-light/theme.scss src/assets/themes/drcantamessa/viva-light/drcantamessa.min.css
 ```
