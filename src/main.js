@@ -49,7 +49,7 @@ import InlineMessage from 'primevue/inlinemessage'
 import CodeHighlight from './CodeHighlight'
 
 if (process.env.VUE_APP_EDITOR === 'code') {
-    require('./assets/themes/drcantamessa/vela-purple-dr-cantamessa/theme.scss')
+    require('./assets/themes/bonovalle/theme.scss')
 }
 import 'primevue/resources/primevue.min.css'
 import 'primeflex/primeflex.css'
