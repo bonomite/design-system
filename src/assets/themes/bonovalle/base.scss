@@ -25,6 +25,9 @@ body.overlay-is-active {
 figure {
     margin: 0;
 }
+* {
+    font-family: var(--font-family);
+}
 
 h1,
 h2,
