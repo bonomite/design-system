@@ -1,0 +1,36 @@
+module.exports = {
+  "stories": [
+    "../components/**/*.stories.mdx",
+    "../components/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/preset-scss",
+    "@storybook/addon-postcss",
+  ],
+  "framework": "@storybook/vue3",
+  core: {
+    builder: "webpack5"
+  },
+  webpackFinal: async (config, { configType }) => {
+    //const envTheme = process.env.STORYBOOK_THEME
+    await config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        // 'style-loader',
+        // 'css-loader',
+        'sass-loader',
+        {
+          loader: 'sass-loader',
+          // options: {
+          //   additionalData: `${process.env.STORYBOOK_EDIT === 'true' ? `@import "~/src/assets/themes/${envTheme}/_theme.scss";` : `@import "~/src/assets/themes/${envTheme}/${envTheme}.min.css"; @import "~/src/assets/themes/${envTheme}/variables.scss"; @import "~/src/assets/themes/${envTheme}/_mixins.scss";`} @import "~/src/assets/themes/${envTheme}/fonts/fonts.css"; @import "primevue/resources/primevue.min.css"; @import "primeicons/primeicons.css";`,
+          // },
+        },
+      ],
+      // include: path.resolve(__dirname, '../'),
+    })
+    return config
+  },
+}
