@@ -98,9 +98,9 @@ const transformUrl = () => {
   const quality = props.quality
   const grey = props.greyscale
   if (!image) return ''
-  transformedUrl = `/m/${size}${
-    focusPoint ? '' : '/smart'
-  }/filters:format(${props.format}):quality(${quality})${grey ? ':grayscale()' : ''}${
+  transformedUrl = `/m/${size}${focusPoint ? '' : '/smart'}/filters:format(${
+    props.format
+  }):quality(${quality})${grey ? ':grayscale()' : ''}${
     focusPoint ? `:focal(${focusPoint})` : ''
   }`
   // add width token
@@ -207,7 +207,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div ref="imageHolderRef" class="sb-image" :class="[{scale:props.scale}]">
+  <div ref="imageHolderRef" class="sb-image" :class="[{ scale: props.scale }]">
     <div
       v-if="!ready"
       class="loading-indication"
@@ -261,8 +261,6 @@ onMounted(() => {
   z-index: 2;
 }
 .sb-image {
-  // width: 100%;
-  // height: auto;
   .loading-indication {
     width: 100%;
     height: auto;
@@ -275,7 +273,9 @@ onMounted(() => {
   .p-image img {
     display: block;
   }
-  &.scale{
+  &.scale {
+    width: 100%;
+    height: auto;
     .p-image img {
       width: 100%;
       height: auto;
