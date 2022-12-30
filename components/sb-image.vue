@@ -196,11 +196,15 @@ const closeEnlarge = () => {
   loadingEnlargedImage.value = false
 }
 
+const getInlineAspectRatio = computed(() => {
+  return `aspect-ratio: ${isRatio ? props.ratio[0] : sizeWidth} / ${
+    isRatio ? props.ratio[1] : sizeHeight
+  };`
+})
+
 onMounted(() => {
   const imageHolderWidth = imageHolderRef.value.offsetWidth
   const maxW = Number(maxWidth.value)
-  // console.log('maxW = ', maxW)
-  // console.log('imageHolderWidth = ', imageHolderWidth)
   currentWidth = imageHolderWidth > maxW ? maxW : imageHolderWidth
   ready.value = true
 })
@@ -208,13 +212,7 @@ onMounted(() => {
 
 <template>
   <div ref="imageHolderRef" class="sb-image" :class="[{ scale: props.scale }]">
-    <div
-      v-if="!ready"
-      class="loading-indication"
-      :style="`aspect-ratio: ${isRatio ? props.ratio[0] : sizeWidth} / ${
-        isRatio ? props.ratio[1] : sizeHeight
-      };`"
-    >
+    <div v-if="!ready" class="loading-indication" :style="getInlineAspectRatio">
       <ProgressSpinner
         strokeWidth="8"
         animationDuration=".5s"
@@ -225,7 +223,7 @@ onMounted(() => {
       v-else
       ref="imageRef"
       class="image"
-      :style="`aspect-ratio: ${sizeWidth} / ${sizeHeight};`"
+      :style="getInlineAspectRatio"
       :src="transformUrl()"
       :srcset="srcset()"
       :alt="props.src?.alt"
@@ -270,8 +268,10 @@ onMounted(() => {
     justify-content: center;
     text-align: center;
   }
-  .p-image img {
-    display: block;
+  .p-image {
+    img {
+      display: block;
+    }
   }
   &.scale {
     width: 100%;

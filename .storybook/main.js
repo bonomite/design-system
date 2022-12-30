@@ -15,7 +15,7 @@ module.exports = {
     builder: "webpack5"
   },
   webpackFinal: async (config, { configType }) => {
-    //const envTheme = process.env.STORYBOOK_THEME
+    const envTheme = process.env.STORYBOOK_THEME
     await config.module.rules.push({
       test: /\.scss$/,
       use: [
@@ -24,9 +24,9 @@ module.exports = {
         'sass-loader',
         {
           loader: 'sass-loader',
-          // options: {
-          //   additionalData: `${process.env.STORYBOOK_EDIT === 'true' ? `@import "~/src/assets/themes/${envTheme}/_theme.scss";` : `@import "~/src/assets/themes/${envTheme}/${envTheme}.min.css"; @import "~/src/assets/themes/${envTheme}/variables.scss"; @import "~/src/assets/themes/${envTheme}/_mixins.scss";`} @import "~/src/assets/themes/${envTheme}/fonts/fonts.css"; @import "primevue/resources/primevue.min.css"; @import "primeicons/primeicons.css";`,
-          // },
+          options: {
+            additionalData: `${process.env.STORYBOOK_EDIT === 'true' ? `@import "~/src/assets/themes/${envTheme}/theme.scss";` : `@import "~/src/assets/themes/${envTheme}/${envTheme}.min.css"; @import "~/src/assets/themes/${envTheme}/variables.scss"; @import "~/src/assets/themes/${envTheme}/_mixins.scss";`} @import "~/src/assets/themes/${envTheme}/fonts.scss"; @import "primevue/resources/primevue.min.css"; @import "primeicons/primeicons.css";`,
+          },
         },
       ],
       // include: path.resolve(__dirname, '../'),
