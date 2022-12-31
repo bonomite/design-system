@@ -20,7 +20,7 @@ const embedCode = computed(() => {
 
 <template>
   <div
-    class="streamfield-embed"
+    class="streamfield-embed mb-6"
     :class="[{ youtube: isYoutube }, { googleMaps: isGoogleMaps }]"
     v-html="embedCode"
   />

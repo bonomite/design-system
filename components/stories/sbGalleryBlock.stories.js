@@ -1,22 +1,22 @@
-import sbGallery from '../sb-gallery.vue'
+import sbGalleryBlock from '../sb-gallery-block.vue'
 
 export default {
-  title: 'Components/sb-gallery',
-  component: sbGallery,
+  title: 'Components/sb-gallery-block',
+  component: sbGalleryBlock,
   argTypes: {
 
   },
 }
 
 const Template = (args) => ({
-  components: { sbGallery },
+  components: { sbGalleryBlock },
   setup() {
     return { args }
   },
-  template: '<sb-gallery v-bind="args" />',
+  template: '<sb-gallery-block v-bind="args" />',
 })
 
-const galleryBlok = {
+const galleryBlokData = {
   "_uid": "1cab5c46-b8dc-4afd-aad3-6b8677d239df",
   "images": [
     {
@@ -195,5 +195,5 @@ const galleryBlok = {
 
 export const Default = Template.bind({})
 Default.args = {
-  blok: galleryBlok,
+  blok: galleryBlokData,
 }

@@ -1,20 +1,20 @@
-import sbQuote from '../sb-quote.vue'
+import sbQuoteBlock from '../sb-quote-block.vue'
 
 
 export default {
-  title: 'Components/sb-quote',
-  component: sbQuote,
+  title: 'Components/sb-quote-block',
+  component: sbQuoteBlock,
   argTypes: {
 
   },
 }
 
 const Template = (args) => ({
-  components: { sbQuote },
+  components: { sbQuoteBlock },
   setup() {
     return { args }
   },
-  template: '<sb-quote v-bind="args" />',
+  template: '<sb-quote-block v-bind="args" />',
 })
 const quoteBlok = {
   "_uid": "ae25fb28-57d5-4ed0-9e21-dc0e1b4a5f4c",

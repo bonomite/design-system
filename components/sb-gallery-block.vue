@@ -89,7 +89,7 @@ onUnmounted(() => {
 })
 </script>
 <template>
-  <div v-if="blok" v-editable="blok" class="blok gallery-blok mb-3">
+  <div v-if="blok" v-editable="blok" class="blok gallery-blok mb-6">
     <div id="gallery" class="grid">
       <a
         v-for="(item, index) in images"

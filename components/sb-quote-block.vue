@@ -1,8 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 import sbImage from './sb-image.vue'
+import StoryblokClient from 'storyblok-js-client'
 const props = defineProps({ blok: Object })
-const StoryblokClient = require('storyblok-js-client')
 let Storyblok = new StoryblokClient({})
 const richText = computed(() =>
   Storyblok.richTextResolver.render(props.blok.quote)
@@ -16,13 +16,13 @@ const fullWidth = ref(props.blok.full_width)
   <div
     v-if="blok"
     v-editable="blok"
-    class="blok quote-blok mb-3"
+    class="blok quote-blok mb-6"
     :class="[{ 'full-width': fullWidth }]"
   >
     <div class="grid">
       <div
         v-if="photo"
-        class="photo col-12 sm:col-3 max-w-8rem sm:max-w-15rem m-auto"
+        class="photo col-12 sm:col-3 max-w-8rem sm:max-w-12rem m-auto"
       >
         <sb-image :src="photo" size="216x216" />
       </div>
@@ -48,13 +48,11 @@ const fullWidth = ref(props.blok.full_width)
 
 <style lang="scss">
 .quote-blok {
-  background-color: var(--surface-a);
-  border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.5rem 0;
   .photo .sb-image {
     border-radius: 50%;
     overflow: hidden;
-    border: 0.25rem solid var(--primary-color);
+    border: 4px solid var(--primary-color);
   }
   .quote {
     position: relative;

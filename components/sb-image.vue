@@ -276,6 +276,7 @@ onMounted(() => {
   &.scale {
     width: 100%;
     height: auto;
+    .p-image,
     .p-image img {
       width: 100%;
       height: auto;
