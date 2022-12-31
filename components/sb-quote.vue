@@ -62,6 +62,10 @@ const fullWidth = ref(props.blok.full_width)
     font-weight: normal;
     font-style: italic !important;
     font-size: 1.5rem;
+    color: var(--text-color);
+    .author {
+      color: var(--text-color);
+    }
     &::before {
       content: '“';
       font-size: 3rem;
