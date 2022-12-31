@@ -20,6 +20,7 @@
 		"primeicons": "5.0.0",
 		"primevue": "^3.20.0",
 		"prismjs": "1.9.0",
+		"storyblok-js-client": "^5.2.3",
 		"vue": "^3.2.45",
 		"vue-router": "^4.1.6"
 	},

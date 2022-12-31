@@ -1,11 +1,15 @@
 <script setup>
 import { computed, ref } from 'vue'
 import sbImage from './sb-image.vue'
-//import { renderRichText } from '@storyblok'
 const props = defineProps({ blok: Object })
+const StoryblokClient = require('storyblok-js-client')
+let Storyblok = new StoryblokClient({})
+const richText = computed(() =>
+  Storyblok.richTextResolver.render(props.blok.quote)
+)
 //const richText = computed(() => renderRichText(props.blok.quote))
-const richText = computed(() => props.blok.quote)
-const photo = ref(props.blok.photo)
+const photo = ref(props.blok.photo.filename ? props.blok.photo : null)
+const author = ref(props.blok.author)
 </script>
 <template>
   <div v-if="blok" v-editable="blok" class="blok quote-blok mb-3">
@@ -22,7 +26,7 @@ const photo = ref(props.blok.photo)
       >
         <div class="pl-0">
           <div class="quote" v-html="richText" />
-          <p class="author p-small mt-3">&mdash; {{ props.blok.author }}</p>
+          <p v-if="author" class="author p-small mt-3">&mdash; {{ author }}</p>
         </div>
       </div>
     </div>
