@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import sbImage from './sb-image.vue'
+import VFlexibleLink from './VFlexibleLink.vue'
 import StoryblokClient from 'storyblok-js-client'
 const props = defineProps({
   blok: {
@@ -8,6 +9,8 @@ const props = defineProps({
     required: true,
   },
 })
+const emit = defineEmits(['emit-sb-image-block'])
+
 let Storyblok = new StoryblokClient({})
 
 const link = ref(props.blok.link)
@@ -39,7 +42,11 @@ const greyscale = computed(() => props.blok.greyscale)
   >
     <div>
       <div class="title mb-1" v-html="desc" />
-      <nuxt-link :to="link.url" :target="link.target">
+      <VFlexibleLink
+        :to="link.url"
+        :target="link.target"
+        @emit-flexible-link="emit('emit-sb-image-block', blok.image)"
+      >
         <sb-image
           :src="blok.image"
           :preview="islink ? false : isEnlarge"
@@ -47,7 +54,7 @@ const greyscale = computed(() => props.blok.greyscale)
           :ratio="ratioArray"
           :greyscale="greyscale"
         />
-      </nuxt-link>
+      </VFlexibleLink>
       <div class="caption" v-html="caption"></div>
     </div>
   </div>

@@ -20,11 +20,11 @@ const imageBlockDataFromStorybook = {
   "_uid": "ef4dca99-9969-478f-812b-c5369be0ddf9",
   "link": {
     "id": "",
-    "url": "http://www.thomasbono.com",
-    "target": "_blank",
+    "url": "",
+    "target": "_self",
     "linktype": "url",
     "fieldtype": "multilink",
-    "cached_url": "http://www.thomasbono.com"
+    "cached_url": ""
   },
   "image": {
     "id": 1327,
@@ -37,7 +37,7 @@ const imageBlockDataFromStorybook = {
     "fieldtype": "asset",
     "is_external_url": false
   },
-  "ratio": "5,1",
+  "ratio": "",
   "title": "",
   "width": "",
   "height": "",
